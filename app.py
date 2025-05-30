@@ -4,7 +4,6 @@ import numpy as np
 
 app = Flask(__name__)
 
-# Load model
 model = joblib.load('titanic_model.pkl')
 
 @app.route('/')
@@ -19,7 +18,6 @@ def predict():
     sex = data['sex']
     embarked = data['embarked']
 
-    # Prediction
     features = np.array([[age, fare, sex, embarked]])
     prediction = model.predict(features)
 
